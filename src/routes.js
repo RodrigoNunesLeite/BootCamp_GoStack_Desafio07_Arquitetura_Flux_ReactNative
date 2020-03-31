@@ -10,8 +10,9 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import Main from './pages/Main';
 import Header from './components/Header';
+import Main from './pages/Main';
+import Cart from './pages/Cart';
 
 const Routes = createAppContainer(
   /**
@@ -21,6 +22,7 @@ const Routes = createAppContainer(
   createStackNavigator(
     {
       Main,
+      Cart,
     },
     {
       /**
@@ -28,8 +30,8 @@ const Routes = createAppContainer(
        * nome da pagina anterior
        */
 
-      defaultNavigationOptions: ({ navigation }) => ({
-        header: () => <Header />,
+      defaultNavigationOptions: (navigation) => ({
+        header: () => <Header {...navigation} />,
         headerBackTitleVisible: false,
         // cor dos textos, botoes etc
         headerTintColor: '#FFF',
