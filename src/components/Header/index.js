@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Container, Title1, CartContainer, ItemCount } from './styles';
 // import Logo from './logo';
@@ -9,7 +10,8 @@ import logo from '../../assets/images/logo.png';
 // import { Container } from './styles';
 
 // eslint-disable-next-line react/prefer-stateless-function
-function Header({ navigation, cartSize }) {
+ export default function Header({ navigation }) {
+  const cartSize = useSelector(state => state.cart.length);
   return (
     <Container>
       <Image
@@ -32,7 +34,7 @@ function Header({ navigation, cartSize }) {
 
 /**
  * Aqui estamos retornando para o componente, o valor do cart
- */
+
 
 export default connect(
   (state) => ({
@@ -40,3 +42,4 @@ export default connect(
   }),
   null
 )(Header);
+*/
